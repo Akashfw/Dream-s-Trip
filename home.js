@@ -1,4 +1,4 @@
-// let image_data="https://636b7b867f47ef51e13194b8.mockapi.io/data/pro";
+
 
 fetch("./home.json").then((res)=>res.json()).then((data)=>display(data.top1)).catch((err)=>console.log(err));
 
@@ -32,7 +32,7 @@ function display2(arr2){
     });
 }
 
-fetch("./home2.json").then((res)=>res.json()).then((data)=>display3(data.bottom1)).catch((err)=>console.log(err));
+fetch("./home.json").then((res)=>res.json()).then((data)=>display3(data.bottom1)).catch((err)=>console.log(err));
 
 function display3(arr3){
     arr3.forEach(elem => {
@@ -49,7 +49,7 @@ function display3(arr3){
     });
 }
 
-fetch("./home2.json").then((res)=>res.json()).then((data)=>display4(data.bottom1)).catch((err)=>console.log(err));
+fetch("./home.json").then((res)=>res.json()).then((data)=>display4(data.bottom2)).catch((err)=>console.log(err));
 
 function display4(arr3){
     arr3.forEach(elem => {
@@ -60,5 +60,20 @@ function display4(arr3){
         city.innerText=elem.dis;
         Div.append(Img,city);
         document.querySelector("#bottom2").append(Div);
+    });
+}
+
+
+fetch("./home.json").then((res)=>res.json()).then((data)=>display5(data.home_end)).catch((err)=>console.log(err));
+
+function display5(arr3){
+    arr3.forEach(elem => {
+        let Div=document.createElement("div");
+        let Img=document.createElement("img");
+        Img.setAttribute("src", elem.img);
+        let city=document.createElement("h3");
+        city.innerText=elem.dis;
+        Div.append(Img,city);
+        document.querySelector("#end").append(Div);
     });
 }
